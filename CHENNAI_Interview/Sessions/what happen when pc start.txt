@@ -1,0 +1,125 @@
+
+What happens When a PC Powers-up?
+
+When you turn it on, a computer's power supply must bring all the 
+separate voltages required by the Motherboard and peripheral components 
+to an acceptable level with enough current to power the whole system. 
+These voltages include both + and - (plus and minus) 12.0 V (volts), + 
+and - 5.00 V and most likely +3.30 V (which may be reduced even further 
+by circuits on the motherboard for the latest power efficient 
+processors). [ Note: All these voltages will vary slightly for each 
+combination of power supply, motherboard, disk drives and various 
+peripherals (since all electronic components drawing current will alter 
+the power supply's load), but they should never fluctuate by much (if at 
+all) upon reaching their operating levels. If a power supply isn't quiet 
+enough (i.e, it has too much AC noise on any of its outputs), the 
+motherboard's BIOS chip may not function correctly; or more likely, the 
+Memory portion of the Power-On Self Test will fail. Either way, the 
+system will never boot up completely! In locations where the AC input 
+from the power company experiences occasional problems or total loss 
+thereof, devices which store up power for a some minutes, allowing you 
+to save your data and properly shut-down the system, should be used. ]
+
+Due to the sensitive nature of some IC chips (Integrated Circuits inside 
+small metal, ceramic or plastic packages), especially the CPU (Central 
+Processing Unit; which produces a great deal of heat, thus the reason 
+for a large metal heatsink and fan on it), the motherboard may never be 
+allowed to power up until a power good signal is received from the power 
+supply. This may take over half a second; a tremendously long time when 
+compared to the speed of a CPU that can step through millions of 
+instructions per second (MIPS), yet it often seems almost instantaneous 
+to its human operator.
+
+By the time you notice the sound of a fan rotating or drive motor 
+spinning up, the voltages have already stabilized, power has been 
+applied to all the chips (the interface chips that facilitate 
+communications between the CPU and the Memory modules; along with any 
+audio, video or LAN cards plugged into bus connectors, and the 
+controllers for peripheral devices such as keyboard, mouse, hard disk 
+and CD/DVD drives) and the motherboard's Clock-pulses are already 
+synchronizing all those interactions. In what feels like a fleeting 
+moment to us, the PC is already executing instructions from the BIOS 
+(Basic Input/Output System) chip.
+
+When the processor first starts up, it is suffering from amnesia; there 
+is nothing at all in the memory to execute. Of course processor makers 
+know this will happen, so they pre-program the processor to always look 
+at the same place in the system BIOS ROM for the start of the BIOS boot 
+program. This is normally location FFFF0h, right at the end of the 
+system memory. They put it there so that the size of the ROM can be 
+changed without creating compatibility problems. Since there are only 16 
+bytes left from there to the end of conventional memory, this location 
+just contains a "jump" instruction telling the processor where to go to 
+find the real BIOS startup program.
+
+3. The BIOS performs the power-on self test (POST). If there are any 
+fatal errors, the boot process stops. POST beep codes can be found in 
+this area of the Troubleshooting Expert.
+
+4. The BIOS looks for the video card. In particular, it looks for the 
+video card's built in BIOS program and runs it. This BIOS is normally 
+found at location C000h in memory. The system BIOS executes the video 
+card BIOS, which initializes the video card. Most modern cards will 
+display information on the screen about the video card. (This is why on 
+a modern PC you usually see something on the screen about the video card 
+before you see the messages from the system BIOS itself).
+
+5. The BIOS then looks for other devices' ROMs to see if any of them 
+have BIOSes. Normally, the IDE/ATA hard disk BIOS will be found at 
+C8000h and executed. If any other device BIOSes are found, they are 
+executed as well.
+
+6. The BIOS displays its startup screen.
+
+7. The BIOS does more tests on the system, including the memory count-up 
+test which you see on the screen. The BIOS will generally display a text 
+error message on the screen if it encounters an error at this point; 
+these error messages and their explanations can be found in this part of 
+the Troubleshooting Expert.
+
+8. The BIOS performs a "system inventory" of sorts, doing more tests to 
+determine what sort of hardware is in the system. Modern BIOSes have 
+many automatic settings and will determine memory timing (for example) 
+based on what kind of memory it finds. Many BIOSes can also dynamically 
+set hard drive parameters and access modes, and will determine these at 
+roughly this time. Some will display a message on the screen for each 
+drive they detect and configure this way. The BIOS will also now search 
+for and label logical devices (COM and LPT ports).
+
+9. If the BIOS supports the Plug and Play standard, it will detect and 
+configure Plug and Play devices at this time and display a message on 
+the screen for each one it finds. See here for more details on how PnP 
+detects devices and assigns resources.
+
+10. The BIOS will display a summary screen about your system's 
+configuration. Checking this page of data can be helpful in diagnosing 
+setup problems, although it can be hard to see because sometimes it 
+flashes on the screen very quickly before scrolling off the top.
+
+11. The BIOS begins the search for a drive to boot from. Most modern 
+BIOSes contain a setting that controls if the system should first try to 
+boot from the floppy disk (A:) or first try the hard disk (C:). Some 
+BIOSes will even let you boot from your CD-ROM drive or other devices, 
+depending on the boot sequence BIOS setting.
+
+12. Having identified its target boot drive, the BIOS looks for boot 
+information to start the operating system boot process. If it is 
+searching a hard disk, it looks for a master boot record at cylinder 0, 
+head 0, sector 1 (the first sector on the disk); if it is searching a 
+floppy disk, it looks at the same address on the floppy disk for a 
+volume boot sector.
+
+13. If it finds what it is looking for, the BIOS starts the process of 
+booting the operating system, using the information in the boot sector. 
+At this point, the code in the boot sector takes over from the BIOS. The 
+DOS boot process is described in detail here. If the first device that 
+the system tries (floppy, hard disk, etc.) is not found, the BIOS will 
+then try the next device in the boot sequence, and continue until it 
+finds a bootable device.
+
+14. If no boot device at all can be found, the system will normally 
+display an error message and then freeze up the system. What the error 
+message is depends entirely on the BIOS, and can be anything from the 
+rather clear "No boot device available" to the very cryptic "NO ROM 
+BASIC - SYSTEM HALTED". This will also happen if you have a bootable 
+hard disk partition but forget to set it active.

@@ -1,0 +1,35 @@
+
+
+				PRABHAKANT SINHA
+1.what are declaration & definition , example.
+2.memory layout
+3.how many types of storage class & storage class specifier -explain
+4.what is static . how static works , explain with example
+5.what is structure, union  give real example , where we r using ?
+6. explain position independent code 
+7. what is diff b/w macro and inline fun.
+8. what is linking & loading
+9. union{
+	int i;
+	int j;
+	}u={1,3};
+	pf("%d",u.j);
+10.gcc options that u know(-c,-o,-E,-s,-g,-pg,-Wall, -I, -L , -D, -Q, --save-temps, -pipe, -x)
+11. what is phony ? explain
+12. can i call make from another make?(yes) write program for that.
+13. write a make file for shared library.
+14. make optins(-f, -B, -C, -d, -i, -n, -o, -s)
+15. if a program on execution. how u will use gdb to debug that program, without stoping execution.
+16. write a bitwise program to swap dest and src bit.
+17. write a program to toggle previous 4 bit at position 6th usng bitwise.
+18. WAP to implements stncpy. strstr.
+19. WAP to delete all nodes from linked list.
+20. WAP to insert data at specific position in linked list.
+21 WAP to reverse a word from string
+22 Printf the character from last using recursion.
+23 WAP to reverse a String
+24 WAP to find loop in LInked list.
+....
+...
+more...
+

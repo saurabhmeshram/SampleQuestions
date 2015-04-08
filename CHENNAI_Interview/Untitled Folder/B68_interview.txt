@@ -1,0 +1,25 @@
+1.Allocate memory to a double pointer.
+2.strncpy & strcspn string library functions.
+3.if ( condition )
+	printf("hello");
+  else
+	printf("world");
+  -write a condition to print "hello world" .
+4.prototype for printf() , what is varargs, explain with macros in <stdarg.h>
+5.write a program to reverse a linked list, by iteration and recursion.
+6.binary search tree deletion algorithm.
+7.wap to search a element in bst
+8.symbol table.
+9.gcc options for optimization,
+	1.how can you perform optimization level '-O1' with out optimizing the debugging information.
+	2.how can you save all the temporary or intermidiate files at a time, in compilation process.
+10.how dependencies work in make.
+	explain make options -o,-t,-f ....
+11.what is fpic, why it is needed to create shared libraries.
+	-dynamic linking of shared libraries. dlopen, dlsym, dlclose, .....
+12.what is volatile. why it is needed.
+13.operators precedence....
+.
+.
+.
+more...
