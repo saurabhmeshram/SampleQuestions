@@ -1,0 +1,1 @@
+2.c  : Classic case of process Scheduling, After the priting, we see that th
